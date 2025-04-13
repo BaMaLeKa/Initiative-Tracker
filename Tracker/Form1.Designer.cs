@@ -51,13 +51,15 @@
             // lbTracker
             // 
             this.lbTracker.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbTracker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lbTracker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbTracker.FormattingEnabled = true;
             this.lbTracker.ItemHeight = 25;
             this.lbTracker.Location = new System.Drawing.Point(13, 13);
             this.lbTracker.Name = "lbTracker";
-            this.lbTracker.Size = new System.Drawing.Size(242, 404);
+            this.lbTracker.Size = new System.Drawing.Size(430, 404);
             this.lbTracker.TabIndex = 0;
+            this.lbTracker.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbTracker_DrawItem);
             this.lbTracker.SelectedIndexChanged += new System.EventHandler(this.lbTracker_SelectedIndexChanged);
             this.lbTracker.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lbTracker_Format);
             // 
@@ -72,7 +74,7 @@
             this.flowLayoutPanel1.Controls.Add(this.nudINI);
             this.flowLayoutPanel1.Controls.Add(this.lblHP);
             this.flowLayoutPanel1.Controls.Add(this.nudHP);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(276, 13);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(462, 13);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 404);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -169,7 +171,7 @@
             // 
             // btnADD
             // 
-            this.btnADD.Location = new System.Drawing.Point(504, 14);
+            this.btnADD.Location = new System.Drawing.Point(690, 14);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(93, 49);
             this.btnADD.TabIndex = 2;
@@ -179,7 +181,7 @@
             // 
             // btnREMOVE
             // 
-            this.btnREMOVE.Location = new System.Drawing.Point(504, 93);
+            this.btnREMOVE.Location = new System.Drawing.Point(690, 93);
             this.btnREMOVE.Name = "btnREMOVE";
             this.btnREMOVE.Size = new System.Drawing.Size(93, 56);
             this.btnREMOVE.TabIndex = 3;
@@ -189,7 +191,7 @@
             // 
             // btnCLEAR
             // 
-            this.btnCLEAR.Location = new System.Drawing.Point(504, 179);
+            this.btnCLEAR.Location = new System.Drawing.Point(690, 179);
             this.btnCLEAR.Name = "btnCLEAR";
             this.btnCLEAR.Size = new System.Drawing.Size(93, 53);
             this.btnCLEAR.TabIndex = 4;
@@ -199,7 +201,7 @@
             // 
             // btnSAVE
             // 
-            this.btnSAVE.Location = new System.Drawing.Point(504, 267);
+            this.btnSAVE.Location = new System.Drawing.Point(690, 267);
             this.btnSAVE.Name = "btnSAVE";
             this.btnSAVE.Size = new System.Drawing.Size(93, 56);
             this.btnSAVE.TabIndex = 5;
@@ -209,7 +211,7 @@
             // 
             // btnLOAD
             // 
-            this.btnLOAD.Location = new System.Drawing.Point(504, 355);
+            this.btnLOAD.Location = new System.Drawing.Point(690, 355);
             this.btnLOAD.Name = "btnLOAD";
             this.btnLOAD.Size = new System.Drawing.Size(93, 53);
             this.btnLOAD.TabIndex = 6;
