@@ -21,6 +21,9 @@ namespace Tracker
 
         private BindingSource bs;
 
+        private Icon stunnedIcon = new Icon("stunned.ico", 16, 16);
+        private Icon deadIcon = new Icon("dead.ico", 16, 16);
+
         public Form1()
         {
             InitializeComponent();
@@ -201,6 +204,47 @@ namespace Tracker
             {
                 loadFromJson(openFile.FileName);
             }
+        }
+
+        // This function is under big construction
+        // There will be a lot of changes to it
+        private void lbTracker_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (lbTracker.SelectedItems.Count == 0)
+                return;
+
+            e.DrawBackground();
+
+            Brush brush = Brushes.Black;
+
+            String name = ((Character)lbTracker.Items[e.Index]).name;
+            String ini = ((Character)lbTracker.Items[e.Index]).ini.ToString();
+
+            Rectangle icoPos = e.Bounds;
+            icoPos.X = e.Bounds.Right - 20;
+            icoPos.Y += 2;
+
+            Rectangle iniPos = e.Bounds;
+            iniPos.X = e.Bounds.Left + ini.Length;
+            iniPos.Y += 2;
+
+            Rectangle namePos = e.Bounds;
+            namePos.X = (e.Bounds.Right - (e.Bounds.Width / 2)) - name.Length - 20;
+            namePos.Y += 2;
+
+            switch(((Character)lbTracker.Items[e.Index]).state)
+            {
+                case STATE.STUNNED:
+                    e.Graphics.DrawIconUnstretched(stunnedIcon, icoPos);
+                    break;
+                case STATE.DEAD:
+                    e.Graphics.DrawIconUnstretched(deadIcon, icoPos);
+                    break;
+            }
+            e.Graphics.DrawString(ini, e.Font, brush, iniPos, StringFormat.GenericDefault);
+            e.Graphics.DrawString(name, e.Font, brush, namePos, StringFormat.GenericDefault);
+
+            e.DrawFocusRectangle();
         }
     }
 }
